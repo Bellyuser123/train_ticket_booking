@@ -5,11 +5,15 @@ require("dotenv").config();
 
 const app = express();
 const userRoutes = require("./routes/userRoutes");
+const trainRoutes = require("./routes/trainRoutes");
+const ticketRoutes = require("./routes/ticketRoutes");
 
 // middleware
 app.use(cors());
 app.use(express.json());
 app.use("/api/users", userRoutes);
+app.use("/api/trains", trainRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 // test route
 app.get("/", (req, res) => {
