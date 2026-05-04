@@ -1,18 +1,12 @@
 const mongoose = require("mongoose");
 
-const seatSchema = new mongoose.Schema({
-  seat_number: Number,
-  status: {
-    type: String,
-    enum: ["available", "booked", "not_boarded"],
-    default: "available"
-  }
-});
-
 const trainSchema = new mongoose.Schema({
-  train_name: String,
-  total_seats: Number,
-  seats: [seatSchema]
+  name: String,
+  number: String,
+  source: String,
+  destination: String,
+  departure_time: String,
+  current_location: { type: String, default: "Station" }
 });
 
 module.exports = mongoose.model("Train", trainSchema);
